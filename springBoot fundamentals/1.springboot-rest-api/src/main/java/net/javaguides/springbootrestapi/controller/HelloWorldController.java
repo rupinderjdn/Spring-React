@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController // -> combination of controller and responseBody
 public class HelloWorldController {
     // HTTP GET Request
-    @GetMapping //-> used to map http get request onto specific handler
+    // http://localhost:8080/hello-world
+    @GetMapping("/hello-world") //-> used to map http get request onto specific handler
     public String helloWorld(){
         return "Hello World!";
     }
