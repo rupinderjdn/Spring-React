@@ -32,3 +32,7 @@
  - It is a generic type. Consequently, we can use any type as the response body
 2. Can be used in this manner
  - return ResponseEntity.ok().header("custom-header","Rupinder").body(student);
+
+# Let's see how to add 
+1. 'student' as a by default api service name to the rest api service
+2. @RequestMapping("student") -> define at class level so that all the method will inherit it.

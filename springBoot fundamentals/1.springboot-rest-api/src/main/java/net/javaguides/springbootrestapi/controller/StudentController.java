@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("students")
 public class StudentController {
     @GetMapping("student")
     public ResponseEntity<Student> getStudent() {
