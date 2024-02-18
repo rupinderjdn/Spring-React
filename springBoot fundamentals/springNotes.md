@@ -19,3 +19,5 @@
 3. @GetMapping("/hello-world") //-> used to map http get request onto specific handler
 4. @GetMapping("student/{id}") // -> 'id' is a variable passed on the URL
    - public Student studentPathVariable(@PathVariable int id)  => @PathVariable used to bind it to the URI template variable
+5. @PostMapping("student/create") -> just like get Mapping a postMapping ont he url
+6. @RequestBody -> to fetch the json from the request body and convert it to a java object
