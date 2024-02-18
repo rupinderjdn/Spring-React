@@ -24,3 +24,11 @@
 7. POST is basically to create PUT is basically to update an existing entry
 8. @PutMapping("student/{id}/update")
 9. @DeleteMapping("student/{id}/delete")
+
+# ResponseEntity
+1. can be used to send responses 
+ - it uses all of the stuff => code, headers and body
+ - we have to return this through a end point.
+ - It is a generic type. Consequently, we can use any type as the response body
+2. Can be used in this manner
+ - return ResponseEntity.ok().header("custom-header","Rupinder").body(student);

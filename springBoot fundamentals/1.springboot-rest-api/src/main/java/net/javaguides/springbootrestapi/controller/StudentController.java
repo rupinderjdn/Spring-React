@@ -2,6 +2,7 @@ package net.javaguides.springbootrestapi.controller;
 
 import net.javaguides.springbootrestapi.bean.Student;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,9 +11,11 @@ import java.util.List;
 @RestController
 public class StudentController {
     @GetMapping("student")
-    public Student getStudent() {
+    public ResponseEntity<Student> getStudent() {
         Student student = new Student(1, "Rupinder", "Singh");
-        return student;
+//        return new ResponseEntity<>(student,HttpStatus.OK);
+//        return ResponseEntity.ok(student);
+        return ResponseEntity.ok().header("custom-header","Rupinder").body(student);
     }
 
     @GetMapping("student-list")
