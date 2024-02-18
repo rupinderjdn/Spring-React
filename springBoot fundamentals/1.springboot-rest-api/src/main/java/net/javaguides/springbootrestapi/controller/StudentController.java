@@ -60,4 +60,10 @@ public class StudentController {
         System.out.println(student.getLastname());
         return new Student(studentId, student.getFirstname(), student.getLastname());
     }
+
+    @DeleteMapping("student/{id}/delete")
+    public String deleteStudent(@PathVariable("id") int studentId){
+        System.out.println(studentId);
+        return ("Successfully Deleted => "+(new Student(studentId, "dummyName", "dummyLastName")));
+    }
 }

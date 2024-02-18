@@ -23,4 +23,4 @@
 6. @RequestBody -> to fetch the json from the request body and convert it to a java object
 7. POST is basically to create PUT is basically to update an existing entry
 8. @PutMapping("student/{id}/update")
-9. 
+9. @DeleteMapping("student/{id}/delete")
