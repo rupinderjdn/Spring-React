@@ -21,3 +21,6 @@
    - public Student studentPathVariable(@PathVariable int id)  => @PathVariable used to bind it to the URI template variable
 5. @PostMapping("student/create") -> just like get Mapping a postMapping ont he url
 6. @RequestBody -> to fetch the json from the request body and convert it to a java object
+7. POST is basically to create PUT is basically to update an existing entry
+8. @PutMapping("student/{id}/update")
+9. 
