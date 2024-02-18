@@ -3,6 +3,7 @@ package net.javaguides.springbootrestapi.controller;
 import net.javaguides.springbootrestapi.bean.Student;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -34,4 +35,11 @@ public class StudentController {
                                        @PathVariable String lastName) {
         return new Student(id, firstName, lastName);
     }
-} 
+
+    // Spring boot Rest API with Request PARAM
+    // http://localhost:8080/student/query?id=1&firstname="first"&lastName="second"
+    @GetMapping("student/query")
+    public Student studentRequestVariable(@RequestParam int id,@RequestParam String firstname,@RequestParam String lastName){
+        return new Student(id, firstname, lastName);
+    }
+}
