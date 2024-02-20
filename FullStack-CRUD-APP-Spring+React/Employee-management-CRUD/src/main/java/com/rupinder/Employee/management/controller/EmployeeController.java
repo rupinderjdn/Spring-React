@@ -19,8 +19,8 @@ public class EmployeeController {
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public ResponseEntity<EmployeeDto> getEmployee(@RequestBody Long id){
+    @GetMapping("{id}")
+    public ResponseEntity<EmployeeDto> getEmployee(@PathVariable("id") Long id){
         HttpStatus httpStatus = HttpStatus.OK;
         EmployeeDto savedEmployee = employeeService.getEmployee(id);
         if(savedEmployee == null)httpStatus = HttpStatus.NOT_FOUND;
