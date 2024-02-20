@@ -2,6 +2,7 @@ package com.rupinder.Employee.management.service.impl;
 
 import com.rupinder.Employee.management.dto.EmployeeDto;
 import com.rupinder.Employee.management.entity.Employee;
+import com.rupinder.Employee.management.exception.ResourceNotFoundException;
 import com.rupinder.Employee.management.mapper.EmployeeMapper;
 import com.rupinder.Employee.management.repository.EmployeeRepository;
 import com.rupinder.Employee.management.service.EmployeeService;
@@ -37,8 +38,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDto getEmployee(Long id) {
-        Optional<Employee> optionalEmployee = employeeRepository.findById(id);
-        Employee savedEmployee = optionalEmployee.orElse(null);
-        return savedEmployee!=null?EmployeeMapper.mapToEmployeeDto(savedEmployee):null;
+        Employee savedEmployee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee does not exist with given Id : "+id));
+        return EmployeeMapper.mapToEmployeeDto(savedEmployee);
     }
 }
