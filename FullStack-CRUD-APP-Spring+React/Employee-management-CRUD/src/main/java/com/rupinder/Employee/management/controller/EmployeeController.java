@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/employees")
 @AllArgsConstructor
@@ -33,5 +35,11 @@ public class EmployeeController {
         EmployeeDto savedEmployee = employeeService.updateEmployee(employeeDto);
         if(savedEmployee == null)httpStatus = HttpStatus.NOT_FOUND;
         return new ResponseEntity<>(savedEmployee,httpStatus);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<EmployeeDto>> getAllEmployees(){
+        List<EmployeeDto> employeeList = employeeService.getAllEmployees();
+        return new ResponseEntity<>(employeeList,HttpStatus.OK);
     }
 }
