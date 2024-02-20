@@ -6,4 +6,5 @@ import com.rupinder.Employee.management.entity.Employee;
 public interface EmployeeService {
     EmployeeDto createEmployee(EmployeeDto employeeDto);
     EmployeeDto updateEmployee(EmployeeDto employeeDto);
+    EmployeeDto getEmployee(Long id);
 }

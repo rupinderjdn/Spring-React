@@ -34,4 +34,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return null;
     }
+
+    @Override
+    public EmployeeDto getEmployee(Long id) {
+        Optional<Employee> optionalEmployee = employeeRepository.findById(id);
+        Employee savedEmployee = optionalEmployee.orElse(null);
+        return savedEmployee!=null?EmployeeMapper.mapToEmployeeDto(savedEmployee):null;
+    }
 }

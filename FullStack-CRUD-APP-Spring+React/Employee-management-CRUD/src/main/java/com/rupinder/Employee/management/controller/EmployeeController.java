@@ -19,6 +19,14 @@ public class EmployeeController {
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
+    @GetMapping
+    public ResponseEntity<EmployeeDto> getEmployee(@RequestBody Long id){
+        HttpStatus httpStatus = HttpStatus.OK;
+        EmployeeDto savedEmployee = employeeService.getEmployee(id);
+        if(savedEmployee == null)httpStatus = HttpStatus.NOT_FOUND;
+        return new ResponseEntity<>(savedEmployee,httpStatus);
+    }
+
     @PutMapping
     public ResponseEntity<EmployeeDto> updateEmployee(@RequestBody EmployeeDto employeeDto){
         HttpStatus httpStatus = HttpStatus.OK;
